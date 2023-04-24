@@ -31,9 +31,11 @@ app.use('/public', express.static(__dirname +'/public'));
 
 
 
-
+app.use(logger('dev'));
 
 app.use('/', gpsRouter);
+
+
 
 
 
