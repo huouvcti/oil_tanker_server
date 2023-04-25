@@ -5,7 +5,7 @@ const period = async (req, res) => {
 
     console.log('period: ', per);
 
-    res.send({"response": per})
+    res.send(`${per}`);
     
 }
 
@@ -20,7 +20,7 @@ const gps = async (req, res) => {
     console.log('gps: ', parameters);
     
     // res.send({"response": parameters})
-    res.send({"response": "OK"})
+    res.send(`OK`)
 }
 
 
