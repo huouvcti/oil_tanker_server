@@ -23,9 +23,7 @@ const period = async (req, res) => {
 const gps = async (req, res) => {
 
     
-    const socket = io('http://localhost:8000', {
-        path: '/socket.io',
-    })
+    const socket = io('http://localhost:8000')
 
     
 
