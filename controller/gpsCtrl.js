@@ -24,7 +24,7 @@ const gps = async (req, res) => {
 
 
 
-    if(parameters.id == null){
+    if(parameters.router_id == null){
         res.send(`Fail: mdn is undefined`)
     } else {
 
