@@ -15,9 +15,9 @@ const period = async (req, res) => {
 const gps = async (req, res) => {
     const parameters = {
         router_id: req.body.mdn || null,
-        lat: req.body.latitude || null,
-        long: req.body.longitude || null,
-        rsrp: req.body.rsrp || null
+        lat: parseFloat(req.body.latitude) || null,
+        long: parseFloat(req.body.longitude) || null,
+        rsrp: parseFloat(req.body.rsrp) || null
     }
 
     console.log('gps: ', parameters);
