@@ -2,10 +2,49 @@
 <html>
     <head>
         <title>gps log</title>
+
+        <style>
+            .section {
+                width: 100%;
+                margin: 0 auto;
+
+                background-color: #fff;
+                border: 5px solid #233067;
+            }
+
+            .header{
+                background-color: #233067;
+                padding: 15px;
+            }
+
+            .header h1 {
+                color: #fff;
+            }
+
+            .log_wrap{
+                padding: 20px;
+            }
+
+            .dataWrap{
+                background-color: #fff;
+                box-shadow: 5px 5px 10px #ccc;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .dataWrap p {
+                text-indent: 2em;
+            }
+        </style>
     </head>
     <body>
-        <div class="log_wrap">
-            
+        <div class="section">
+            <div class="header">
+                <h1>GPS 실시간 로그 페이지</h1>
+            </div>
+
+            <div class="log_wrap">
+            </div>
         </div>
 
         <script src="/socket.io/socket.io.js"></script>
@@ -24,7 +63,7 @@
                 const divTag = document.createElement('div');
                 
                 const dataHtml =
-                    `<div>
+                    `<div class='dataWrap'>
                         <p>mdn: ${data.router_id},</p>
                         <p>latitude: ${data.latitude},</p>
                         <p>longitude: ${data.longitude},</p>
