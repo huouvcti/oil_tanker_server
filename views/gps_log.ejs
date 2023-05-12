@@ -16,6 +16,9 @@
             });
 
 
+            socket.emit('join', {room: "room"});
+
+
             socket.on("gps_client_update", async (data) => {
                 console.log(data)
                 const pTag = document.createElement('p');

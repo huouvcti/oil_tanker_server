@@ -8,9 +8,20 @@ const socketio = (server) => {
         console.log('Socket Connected');
 
 
+        let room = "";
+
+
         socket.on('disconnect', () => {
             console.log('socket disconnected');
         });
+
+
+        socket.on("join", async (data) => {
+
+            room = parseInt(data.room);
+
+            socket.join(room)
+        })
         
 
         await socket.on('gps_server_update', async (data) => {

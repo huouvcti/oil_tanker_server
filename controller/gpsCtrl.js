@@ -47,6 +47,9 @@ const gps = async (req, res) => {
 
         await gpsDAO.gps.insert(parameters);
 
+
+        await socket.emit('join', {room: "room"});
+
         await socket.emit('gps_server_update', parameters);
 
         res.send(`OK`)
