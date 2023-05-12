@@ -7,12 +7,21 @@ const socketio = (server) => {
     io.on('connection',  async (socket) => {
         console.log('Socket Connected');
 
+
+        socket.on('disconnect', () => {
+            console.log('socket disconnected');
+        });
+
+        
+
         await socket.on('gps_server_update', async (data) => {
             console.log("socket: ", data)
 
             await socket.emit('gps_client_update', data);
         })
     });
+
+    io.on()
 }
 
 
