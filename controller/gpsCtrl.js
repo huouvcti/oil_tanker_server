@@ -43,6 +43,8 @@ const gps = async (req, res) => {
         res.send(`Fail: mdn is undefined`)
     } else {
 
+        console.log(socket)
+
         await gpsDAO.gps.insert(parameters);
 
         await socket.emit('gps_server_update', parameters);
