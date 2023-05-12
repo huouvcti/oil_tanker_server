@@ -22,9 +22,10 @@
             socket.on("gps_client_update", async (data) => {
                 console.log(data)
                 const pTag = document.createElement('p');
-                const textNode = document.createTextNode(data);
+                
+                const dataHtml = `${data.rouser_id}`;
 
-                pTag.appendChild(textNode);
+                pTag.appendChild(dataHtml);
                 
                 document.getElementsByClassName('log_wrap')[0].appendChild(pTag);
 
