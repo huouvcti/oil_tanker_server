@@ -21,7 +21,7 @@ const period = async (req, res) => {
 
 
 const gps = async (req, res) => {
-    const socket = io.connect();
+    const socket = io.connect({hostname:'localhost', port: 8000});
 
     console.log(socket)
     
