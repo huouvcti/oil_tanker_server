@@ -26,8 +26,6 @@ const gps = async (req, res) => {
     const socket = io('http://localhost:8000')
 
     
-
-    console.log(socket)
     
 
     const parameters = {

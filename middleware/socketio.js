@@ -7,7 +7,7 @@ const socketio = (server) => {
     io.on('connection',  async (socket) => {
         console.log('Connected');
 
-        await io.on('gps_server_update', async (data) => {
+        await socket.on('gps_server_update', async (data) => {
             console.log("socket: ", data)
         })
     });
