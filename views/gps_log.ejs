@@ -64,10 +64,13 @@
                 
                 const dataHtml =
                     `<div class='dataWrap'>
-                        <p>mdn: ${data.router_id},</p>
-                        <p>latitude: ${data.latitude},</p>
-                        <p>longitude: ${data.longitude},</p>
-                        <p>rsrp: ${data.rsrp},</p>
+                        {
+                            <p>mdn: ${data.router_id},</p>
+                            <p>latitude: ${data.latitude},</p>
+                            <p>longitude: ${data.longitude},</p>
+                            <p>rsrp: ${data.rsrp},</p>
+                        }
+                        
                     </div>`;
 
                     divTag.innerHTML = dataHtml;
