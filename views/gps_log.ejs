@@ -5,7 +5,7 @@
     </head>
     <body>
         <div class="log_wrap">
-
+            
         </div>
 
         <script src="/socket.io/socket.io.js"></script>
@@ -21,13 +21,19 @@
 
             socket.on("gps_client_update", async (data) => {
                 console.log(data)
-                const pTag = document.createElement('p');
+                const divTag = document.createElement('div');
                 
-                const dataHtml = `${data.router_id}`;
+                const dataHtml =
+                    `<div>
+                        <p>mdn: ${data.router_id},</p>
+                        <p>latitude: ${data.latitude},</p>
+                        <p>longitude: ${data.longitude},</p>
+                        <p>rsrp: ${data.rsrp},</p>
+                    </div>`;
 
-                pTag.innerHTML = dataHtml;
+                    divTag.innerHTML = dataHtml;
                 
-                document.getElementsByClassName('log_wrap')[0].append(pTag);
+                document.getElementsByClassName('log_wrap')[0].append(divTag);
 
             })
         </script>
