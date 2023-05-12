@@ -27,7 +27,7 @@ const socketio = (server) => {
         await socket.on('gps_server_update', async (data) => {
             console.log("socket: ", data)
 
-            await socket.emit('gps_client_update', data);
+            await socket.to(room).emit('gps_client_update', data);
         })
     });
 
