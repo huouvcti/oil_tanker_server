@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>gps log</title>
+    </head>
+    <body>
+        <div class="log_wrap">
+
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script>
+            const socket = io.connect( {
+                transports: ['websocket']
+            });
+
+            socket.on("gps_client_update", async (data) => {
+                const pTag = document.createElement('p');
+                const textNode = document.createTextNode(data);
+
+                pTag.appendChild(textNode);
+                
+                document.querySelector('div:log_wrap').appendChild(pTag);
+
+            })
+        </script>
+        
+
+    </body>
+</html>
