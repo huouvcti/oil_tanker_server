@@ -25,9 +25,9 @@
                 
                 const dataHtml = `${data.rouser_id}`;
 
-                pTag.appendChild(dataHtml);
+                pTag.innerHTML = dataHtml;
                 
-                document.getElementsByClassName('log_wrap')[0].appendChild(pTag);
+                document.getElementsByClassName('log_wrap')[0].innerHTML += pTag;
 
             })
         </script>
