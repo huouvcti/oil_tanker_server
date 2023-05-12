@@ -13,6 +13,10 @@
         <script>
             const socket = io.connect('http://103.60.127.85:8000');
 
+            socket.on("connect", () => {
+                console.log("connection server");
+            });
+
             socket.on("gps_client_update", async (data) => {
                 console.log(data)
                 const pTag = document.createElement('p');
