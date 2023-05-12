@@ -1,6 +1,14 @@
 "use strict"
 
+const io = require('socket.io-client');
+
 const gpsDAO = require('../model/gpsDAO');
+
+
+
+
+
+
 
 const period = async (req, res) => {
     const per = 60;
@@ -13,6 +21,9 @@ const period = async (req, res) => {
 
 
 const gps = async (req, res) => {
+    const socket = io();
+    
+
     const parameters = {
         router_id: req.body.mdn || null,
         latitude: parseFloat(req.body.latitude) || null,
@@ -29,6 +40,8 @@ const gps = async (req, res) => {
     } else {
 
         await gpsDAO.gps.insert(parameters);
+
+        await socket.emit('gps_server_update', parameters);
 
         res.send(`OK`)
     }
