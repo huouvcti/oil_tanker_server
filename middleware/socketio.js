@@ -8,7 +8,7 @@ const socketio = (server) => {
         console.log('Socket Connected');
 
 
-        await socket.on('disconnect', () => {
+        await socket.on('disconnect', (data) => {
             console.log('socket disconnected');
         });
 
