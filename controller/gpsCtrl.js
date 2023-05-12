@@ -22,6 +22,8 @@ const period = async (req, res) => {
 
 const gps = async (req, res) => {
     const socket = io.connect();
+
+    console.log(socket)
     
 
     const parameters = {
