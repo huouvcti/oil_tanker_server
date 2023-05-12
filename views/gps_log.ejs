@@ -11,11 +11,10 @@
         <script src="/socket.io/socket.io.js"></script>
 
         <script>
-            const socket = io.connect('http://103.60.127.85:8000', {
-                transports: ['websocket']
-            });
+            const socket = io.connect('http://103.60.127.85:8000');
 
             socket.on("gps_client_update", async (data) => {
+                console.log(data)
                 const pTag = document.createElement('p');
                 const textNode = document.createTextNode(data);
 
