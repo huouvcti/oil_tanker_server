@@ -1,5 +1,7 @@
 "use strict"
 
+const gpsDAO = require('../model/gpsDAO');
+
 const period = async (req, res) => {
     const per = 60;
 
@@ -12,7 +14,7 @@ const period = async (req, res) => {
 
 const gps = async (req, res) => {
     const parameters = {
-        id: req.body.mdn || null,
+        router_id: req.body.mdn || null,
         lat: req.body.latitude || null,
         long: req.body.longitude || null,
         rsrp: req.body.rsrp || null
@@ -20,9 +22,14 @@ const gps = async (req, res) => {
 
     console.log('gps: ', parameters);
 
+
+
     if(parameters.id == null){
         res.send(`Fail: mdn is undefined`)
     } else {
+
+        await gpsDAO.gps.insert(parameters);
+
         res.send(`OK`)
     }
     
