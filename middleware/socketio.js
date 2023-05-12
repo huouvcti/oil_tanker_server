@@ -8,11 +8,11 @@ const socketio = (server) => {
         console.log('Socket Connected');
 
 
-        socket.on('disconnect', () => {
+        await socket.on('disconnect', () => {
             console.log('socket disconnected');
         });
 
-        
+
 
         await socket.on('gps_server_update', async (data) => {
             console.log("socket: ", data)
