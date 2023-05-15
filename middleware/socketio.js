@@ -26,9 +26,9 @@ const socketio = (server) => {
             socket.join(room)
 
 
-            const gps_test_before = await gpsDAO.gps.test_before();
+            // const gps_test_before = await gpsDAO.gps.test_before();
 
-            await socket.to(room).emit('gps_client_test_before', gps_test_before);
+            // await socket.to(room).emit('gps_client_test_before', gps_test_before);
         })
         
 

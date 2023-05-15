@@ -57,29 +57,29 @@
 
             socket.emit('join', {room: "room"});
 
-            socket.on("gps_client_test_before", async (datas) => {
+            // socket.on("gps_client_test_before", async (datas) => {
 
-                datas.forEach(data => {
-                    const divTag = document.createElement('div');
+            //     datas.forEach(data => {
+            //         const divTag = document.createElement('div');
                 
-                    const dataHtml =
-                        `<div class='dataWrap'>
-                            {
-                                <p>mdn: ${data.router_id},</p>
-                                <p>latitude: ${data.latitude},</p>
-                                <p>longitude: ${data.longitude},</p>
-                                <p>rsrp: ${data.rsrp},</p>
-                            }
+            //         const dataHtml =
+            //             `<div class='dataWrap'>
+            //                 {
+            //                     <p>mdn: ${data.router_id},</p>
+            //                     <p>latitude: ${data.latitude},</p>
+            //                     <p>longitude: ${data.longitude},</p>
+            //                     <p>rsrp: ${data.rsrp},</p>
+            //                 }
                             
-                        </div>`;
+            //             </div>`;
 
-                        divTag.innerHTML = dataHtml;
+            //             divTag.innerHTML = dataHtml;
                     
-                    document.getElementsByClassName('log_wrap')[0].append(divTag);
-                });
+            //         document.getElementsByClassName('log_wrap')[0].append(divTag);
+            //     });
 
                 
-            })
+            // })
 
 
             socket.on("gps_client_update", async (data) => {
