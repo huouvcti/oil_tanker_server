@@ -5,7 +5,7 @@ const gps = {}
 
 gps.test_before = (parameters) =>{
     return new Promise((resolve, reject) =>{
-        db.query(`SELECT * FORM gps LIMIT 10;`, [], (err, db_data) => {
+        db.query(`SELECT * FROM gps LIMIT 10;`, [], (err, db_data) => {
             if(err) {
                 reject(err);
             } else {
