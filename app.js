@@ -12,6 +12,7 @@ const path = require('path');
  * router import
  */
 const gpsRouter = require("./routes/gps");
+const gpsAPIRouter = require("./routes/gpsAPI");
 const webRouter = require("./routes/web");
 
 
@@ -34,6 +35,7 @@ app.use('/public', express.static(__dirname +'/public'));
 app.use(logger('dev'));
 
 app.use('/', gpsRouter);
+app.use('/gpsAPI', gpsAPIRouter);
 
 app.use('/test', webRouter);
 
