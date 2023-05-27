@@ -23,9 +23,8 @@ const period = async (req, res) => {
 const gps = async (req, res) => {
 
     
-    const socket = io('https://localhost:8000')
+    const socket = io('https://ocean-gps.com:8000');
 
-    
     
 
     const parameters = {
@@ -43,9 +42,7 @@ const gps = async (req, res) => {
         res.send(`Fail: mdn is undefined`)
     } else {
 
-
         await gpsDAO.gps.insert(parameters);
-
 
         await socket.emit('join', {room: "room"});
 

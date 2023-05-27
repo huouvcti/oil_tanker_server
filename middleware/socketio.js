@@ -5,6 +5,7 @@ const gpsDAO = require('../model/gpsDAO');
 
 
 const socketio = (server) => {
+    console.log(server);
     const io = SocketIO(server, { path: '/socket.io' });
 
     io.on('connection',  async (socket) => {
@@ -20,7 +21,7 @@ const socketio = (server) => {
 
 
         socket.on("join", async (data) => {
-
+            console.log("ddd")
             room = parseInt(data.room);
 
             socket.join(room)
