@@ -38,6 +38,7 @@ gpsAPI.search_gps_route = (parameters) => {
         let sql = `SELECT router_id, GROUP_CONCAT(latitude) AS latitude, GROUP_CONCAT(longitude) AS longitude, GROUP_CONCAT(rsrp) AS rsrp, GROUP_CONCAT(date) AS date
                     FROM gps
                     WHERE DATE_FORMAT(date, '%Y-%m-%d') = CURDATE()
+                    AND (latitude IS NOT NULL AND longitude IS NOT NULL AND rsrp IS NOT NULL)
                     GROUP BY router_id
                     ORDER BY router_id ASC, date DESC;`
         db.query(sql, [], (err, db_data) => {

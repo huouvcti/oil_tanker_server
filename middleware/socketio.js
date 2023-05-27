@@ -5,7 +5,6 @@ const gpsDAO = require('../model/gpsDAO');
 
 
 const socketio = (server) => {
-    console.log(server);
     const io = SocketIO(server, { path: '/socket.io' });
 
     io.on('connection',  async (socket) => {
