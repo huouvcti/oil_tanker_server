@@ -58,7 +58,7 @@ gpsAPI.search_gps_current = (parameters) => {
                     WHERE DATE_FORMAT(date, '%Y-%m-%d') = CURDATE()
                     AND (latitude IS NOT NULL AND longitude IS NOT NULL AND rsrp IS NOT NULL)
                     GROUP BY router_id
-                    ORDER BY router_id ASC`
+                    ORDER BY date desc, router_id ASC`
         db.query(sql, [], (err, db_data) => {
             if(err) {
                 reject(err);
