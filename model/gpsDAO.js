@@ -55,7 +55,7 @@ gpsAPI.search_gps_current = (parameters) => {
     return new Promise((resolve, reject) =>{
         let sql = `SELECT router_id, latitude, longitude, rsrp, date
                     FROM gps
-                    WHERE (router_id) in (select router_id, MAX(date) as date from gps group by router_id)
+                    WHERE (router_id, date) in (select router_id, MAX(date) as date from gps group by router_id)
                     AND DATE_FORMAT(date, '%Y-%m-%d') = CURDATE()
                     AND (latitude IS NOT NULL AND longitude IS NOT NULL AND rsrp IS NOT NULL)
                     ORDER BY router_id ASC;`
