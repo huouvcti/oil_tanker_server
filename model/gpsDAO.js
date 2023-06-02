@@ -35,7 +35,7 @@ gps.insert = (parameters) =>{
 
 gpsAPI.search_gps_route = (parameters) => {
     return new Promise((resolve, reject) =>{
-        let sql = `SELECT router_id, GROUP_CONCAT(latitude) AS latitude, GROUP_CONCAT(longitude) AS longitude, GROUP_CONCAT(rsrp) AS rsrp, GROUP_CONCAT(date) AS date
+        let sql = `SELECT router_id, GROUP_CONCAT(latitude ORDER BY date) AS latitude, GROUP_CONCAT(longitude ORDER BY date) AS longitude, GROUP_CONCAT(rsrp ORDER BY date) AS rsrp, GROUP_CONCAT(date ORDER BY date) AS date
                     FROM gps
                     WHERE DATE_FORMAT(date, '%Y-%m-%d') = CURDATE()
                     AND (latitude IS NOT NULL AND longitude IS NOT NULL AND rsrp IS NOT NULL)
