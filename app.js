@@ -13,6 +13,7 @@ const path = require('path');
  */
 const gpsRouter = require("./routes/gps");
 const gpsAPIRouter = require("./routes/gpsAPI");
+const userAPIRouter = require("./routes/userAPI");
 const webRouter = require("./routes/web");
 
 
@@ -36,6 +37,7 @@ app.use(logger('dev'));
 
 app.use('/', gpsRouter);
 app.use('/gpsAPI', gpsAPIRouter);
+app.use('/userAPI', userAPIRouter);
 
 app.use('/test', webRouter);
 
