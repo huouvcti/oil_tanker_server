@@ -28,6 +28,20 @@ adminAPI.login_process = async (req, res) => {
 }
 
 
+adminAPI.show_shipInfo = async (req, res) => {
+    const admin_key = req.params.id;
+     
+    const db_data = await adminDAO.shipInfo.show_shipInfo(admin_key)
+
+    if(db_data.length > 0){
+        res.send(db_data);
+    } else {
+        res.send(false);
+    }
+    
+}
+
+
 
 
 module.exports = {
