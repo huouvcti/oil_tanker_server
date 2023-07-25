@@ -25,6 +25,7 @@ let corsOptions = {
 const gpsRouter = require("./routes/gps");
 const gpsAPIRouter = require("./routes/gpsAPI");
 const userAPIRouter = require("./routes/userAPI");
+const adminAPIRouter = require("./routes/adminAPI");
 const webRouter = require("./routes/web");
 
 
@@ -54,6 +55,7 @@ app.use(logger('dev'));
 app.use('/', gpsRouter);
 app.use('/gpsAPI', gpsAPIRouter);
 app.use('/userAPI', userAPIRouter);
+app.use('/adminAPI', adminAPIRouter);
 
 app.use('/test', webRouter);
 
