@@ -30,8 +30,15 @@ gpsAPI.gps_route = async (req, res) => {
 gpsAPI.gps_current = async (req, res) => {
     
     const db_data = await gpsDAO.gpsAPI.search_gps_current();
+    res.send(db_data);
+}
 
 
+gpsAPI.show_ship_info = async (req, res) => {
+    
+    const id = req.params.id;
+
+    const db_data = await gpsDAO.gpsAPI.show_ship_info(id);
     res.send(db_data);
 }
 

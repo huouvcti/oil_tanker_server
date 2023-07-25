@@ -69,6 +69,22 @@ gpsAPI.search_gps_current = (parameters) => {
     })
 }
 
+gpsAPI.show_ship_info = (router_id) => {
+    return new Promise((resolve, reject) =>{
+        let sql = `select * from admin_shipInfo where router_id=?;`
+        db.query(sql, [router_id], (err, db_data) => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve(db_data);
+            }
+        })
+    })
+}
+
+
+
+
 
 
 module.exports = {
